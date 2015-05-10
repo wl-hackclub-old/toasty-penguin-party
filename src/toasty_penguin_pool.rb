@@ -8,6 +8,8 @@ require_relative "penguin"
 
 class GameWindow < Gosu::Window
 	def initialize
+		# This creates the window and such.
+		#      w,   h,  fullscreen
 		super 800, 400, false
 
 		@in_menu = true
@@ -35,6 +37,11 @@ class GameWindow < Gosu::Window
 	end
 
 	def draw
+	end
+
+	# Give us a mouse pointer; we'll want to use it for gameplay.
+	def needs_cursor?
+		true
 	end
 end
 
