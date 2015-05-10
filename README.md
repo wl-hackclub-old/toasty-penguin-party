@@ -11,7 +11,7 @@ SDL libraries may also be needed.
 
 To install necessary Ruby dependencies, simply run `bundle install`
 
-*To run:*
+**To run:**
 
 `./toasty_penguin_pool`
 
