@@ -1,19 +1,18 @@
-toasty penguin pool
-==============
+Toasty Penguin Pool
+===================
 
-So much cool man.
+The 2015 ACSL game project.
 
 Developing
 ----------
 
-Install ruby (duh) and `freeimage-devel` or correspondinging package from your package manager. Also you may need additional SDL libraries.
+Make sure you have Ruby and `freeimage-devel` or the corresponding package.
+SDL libraries may also be needed.
 
-``
+```
 bundle install
-``
+```
 
 To run:
 
-``
-ruby toastypenguinpool.rb
-``
+`ruby toasty_penguin_pool.rb` or `./toasty_penguin_pool.rb`
