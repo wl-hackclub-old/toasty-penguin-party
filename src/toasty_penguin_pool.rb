@@ -11,6 +11,7 @@ class GameWindow < Gosu::Window
 		# This creates the window and such.
 		#      w,   h,  fullscreen
 		super 800, 400, false
+		self.caption = "Toasty Penguin Pool"
 
 		@in_menu = true
 	end
