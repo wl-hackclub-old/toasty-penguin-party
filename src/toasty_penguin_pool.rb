@@ -11,6 +11,9 @@ require_relative "penguin"
 require_relative "toast"
 
 class GameWindow < Gosu::Window
+	attr_writer :location
+	attr_writer :game
+
 	def initialize
 		# This creates the window and such.
 		#      w,   h,  fullscreen
@@ -19,6 +22,7 @@ class GameWindow < Gosu::Window
 
 		# Valid locations are :menu, :game, and :credits.
 		@location = :menu
+
 		font = Gosu::Font.new(self, Gosu::default_font_name, 20)
 		@menu = Menu.new(self, font)
 		@credits = Credits.new(self, font)
@@ -27,6 +31,14 @@ class GameWindow < Gosu::Window
 
 	# Allows a button to be held down and still activated.
 	def button_down(id)
+		case @location
+        when :menu
+            @menu.button_down(id)
+        when :game
+            @game.button_down(id)
+        when :credits
+            @credits.button_down(id)
+        end
 	end
 
 	# Only allows the button to be pressed once for this to run.
@@ -38,10 +50,16 @@ class GameWindow < Gosu::Window
 			else
 				@location = :menu
 			end
-		when Gosu::KbReturn
-			# Create a game too.
-			@location = :game
 		end
+
+		case @location
+        when :menu
+            @menu.button_up(id)
+        when :game
+            @game.button_up(id)
+        when :credits
+            @credits.button_up(id)
+        end
 	end
 
 	def update

@@ -4,6 +4,12 @@ class Location
 		@font = font
 	end
 
+	def button_down(id)
+	end
+
+	def button_up(id)
+	end
+
 	def update
 	end
 
