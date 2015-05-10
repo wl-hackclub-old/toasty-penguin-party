@@ -13,7 +13,8 @@ class GameWindow < Gosu::Window
 		super 800, 400, false
 		self.caption = "Toasty Penguin Pool"
 
-		@in_menu = true
+		# Valid locations are :menu, :game, and :credits.
+		@location = :menu
 	end
 
 	# Allows a button to be held down and still activated.
@@ -24,13 +25,13 @@ class GameWindow < Gosu::Window
 	def button_up(id)
 		case id
 		when Gosu::KbEscape
-			if @in_menu
+			if @location == :menu
 				close
 			else
-				@in_menu = true
+				@location = :menu
 			end
 		when Gosu::KbReturn
-			@in_menu = false
+			@location = :game
 		end
 	end
 
