@@ -1,0 +1,9 @@
+* toastypenguinpool todo list
+** Programming
+- [ ] penguin class
+- [ ] field class
+** Art
+- [ ] penguin
+- [ ] toast
+- [ ] guide penguin
+- [ ] board background
