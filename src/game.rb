@@ -6,4 +6,7 @@ class Game
 		@toasts = []
 		@field = Field.new
 	end
+
+	def draw
+	end
 end

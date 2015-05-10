@@ -2,9 +2,13 @@
 
 require "gosu"
 
-require_relative "game"
+require_relative "drawer"
+require_relative "credits"
 require_relative "field"
+require_relative "game"
+require_relative "menu"
 require_relative "penguin"
+require_relative "toast"
 
 class GameWindow < Gosu::Window
 	def initialize
@@ -15,6 +19,9 @@ class GameWindow < Gosu::Window
 
 		# Valid locations are :menu, :game, and :credits.
 		@location = :menu
+		font = Gosu::Font.new(self, Gosu::default_font_name, 20)
+		@menu = Menu.new(self, font)
+		@credits = Credits.new(self, font)
 	end
 
 	# Allows a button to be held down and still activated.
@@ -39,6 +46,13 @@ class GameWindow < Gosu::Window
 	end
 
 	def draw
+		if @location == :menu
+			@menu.draw
+		elsif @location == :game
+			@game.draw
+		elsif @location == :credits
+			@credits.draw
+		end
 	end
 
 	# Give us a mouse pointer; we'll want to use it for gameplay.
