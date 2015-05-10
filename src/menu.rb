@@ -3,7 +3,7 @@ class Menu < Location
 		case id
 		when Gosu::KbReturn
 			# Create a game and start it.
-			@window.game = Game.new(@window, @font)
+			@window.game = Game.new(@window, @font, 2)
 			@window.location = :game
 		end
 	end

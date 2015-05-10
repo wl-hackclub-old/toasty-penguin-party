@@ -1,6 +1,2 @@
-class Toast
-	attr_accessor :location
-
-	def initialize
-	end
+class Toast < Entity
 end

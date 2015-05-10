@@ -1,7 +1,9 @@
 #! /usr/bin/env ruby
 
+require "matrix"
 require "gosu"
 
+require_relative "entity"
 require_relative "location"
 require_relative "credits"
 require_relative "field"
