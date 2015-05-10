@@ -2,6 +2,7 @@
 
 require "gosu"
 
+require_relative "game"
 require_relative "field"
 require_relative "penguin"
 
@@ -29,5 +30,6 @@ class GameWindow < Gosu::Window
 	end
 end
 
+# This code actually makes the window open.
 window = GameWindow.new
 window.show
