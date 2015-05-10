@@ -3,6 +3,7 @@ class Game
 	def initialize
 		@completed = false
 		@penguins = []
+		@toasts = []
 		@field = Field.new
 	end
 end
