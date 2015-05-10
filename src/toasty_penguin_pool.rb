@@ -9,6 +9,8 @@ require_relative "penguin"
 class GameWindow < Gosu::Window
 	def initialize
 		super 800, 400, false
+
+		@in_menu = true
 	end
 
 	# Allows a button to be held down and still activated.
@@ -19,7 +21,13 @@ class GameWindow < Gosu::Window
 	def button_up(id)
 		case id
 		when Gosu::KbEscape
-			close
+			if @in_menu
+				close
+			else
+				@in_menu = true
+			end
+		when Gosu::KbReturn
+			@in_menu = false
 		end
 	end
 
