@@ -7,6 +7,8 @@ class Game < Location
 		@penguins = []
 		@toasts = []
 		@field = Field.new
+		@players = players
+		@turn = 0
 
 		players.times do
 			@penguins << Penguin.new
@@ -16,5 +18,12 @@ class Game < Location
 	def draw
 		@penguins.each(&:draw)
 		@toasts.each(&:draw)
+	end
+
+	def increment_turn
+		turn += 1
+		if turn == players
+			turn = 0
+		end
 	end
 end
