@@ -1,8 +1,4 @@
-class Menu < Drawer
-	def initialize(window, font)
-		super(window, font)
-	end
-
+class Menu < Location
 	def draw
 		@font.draw("Test", 0, 0, 0)
 	end

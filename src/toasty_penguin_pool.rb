@@ -2,7 +2,7 @@
 
 require "gosu"
 
-require_relative "drawer"
+require_relative "location"
 require_relative "credits"
 require_relative "field"
 require_relative "game"
@@ -22,6 +22,7 @@ class GameWindow < Gosu::Window
 		font = Gosu::Font.new(self, Gosu::default_font_name, 20)
 		@menu = Menu.new(self, font)
 		@credits = Credits.new(self, font)
+		@game = nil
 	end
 
 	# Allows a button to be held down and still activated.
@@ -38,19 +39,29 @@ class GameWindow < Gosu::Window
 				@location = :menu
 			end
 		when Gosu::KbReturn
+			# Create a game too.
 			@location = :game
 		end
 	end
 
 	def update
+		case @location
+		when :menu
+			@menu.update
+		when :game
+			@game.update
+		when :credits
+			@credits.update
+		end
 	end
 
 	def draw
-		if @location == :menu
+		case @location
+		when :menu
 			@menu.draw
-		elsif @location == :game
+		when :game
 			@game.draw
-		elsif @location == :credits
+		when :credits
 			@credits.draw
 		end
 	end
