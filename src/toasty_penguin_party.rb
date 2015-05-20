@@ -12,6 +12,10 @@ require_relative "menu"
 require_relative "penguin"
 require_relative "toast"
 
+module ZOrder
+	Background, Board, Player, Toast, UI, Menu = *0..6
+end
+
 class GameWindow < Gosu::Window
 	attr_writer :location
 	attr_writer :game

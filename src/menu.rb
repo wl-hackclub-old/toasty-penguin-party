@@ -9,6 +9,7 @@ class Menu < Location
 	end
 
 	def draw
-		@font.draw("Test", 0, 0, 0)
+		@font = Gosu::Font.new(@window, Gosu::default_font_name, 20)
+		@font.draw_rel("Toasty Penguin Party", (@window.width / 2), (@window.height / 2) - 70, ZOrder::Menu, 0.5, 0.5, 2.0, 2.0, 0xffffffff)
 	end
 end
