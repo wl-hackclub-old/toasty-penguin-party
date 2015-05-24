@@ -1,5 +1,6 @@
 class Penguin < Entity
    def launch
+=begin
         @@toasts = Array.new
         #first make 100 toasts
         100.times do |i|
@@ -8,7 +9,8 @@ class Penguin < Entity
             #sorry Linus but 64 by 64 takes a long time to load
             @@toasts.push(coordinates)
         end
-        puts "Which direction to launch (N,E,S,W,NE,NW,SE,SW)"
+=end
+=begin        puts "Which direction to launch (N,E,S,W,NE,NW,SE,SW)"
         #Maybe add NNW, NNE, etc.
         @@direction = gets.chomp
         @@trail = Array.new
@@ -39,5 +41,7 @@ class Penguin < Entity
             end
         else puts "How did you not eat two toasts? You starved."
         end
+=end
     end
 end
+
