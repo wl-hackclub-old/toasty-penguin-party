@@ -8,9 +8,14 @@ class Toast < Entity
 	@@totalpieces = 0
 	def initialize
 		if @@totalpieces < @@TOASTLIMIT
-			self.xloc = Gosu::random(0,Field::xsize) #toast will be placed on a random coordinate within the field
-			self.yloc = Gosu::random(0,Field::ysize)
+			@xloc = Gosu::random(0,Field::xsize) #toast will be placed on a random coordinate within the field
+			@yloc = Gosu::random(0,Field::ysize)# this will change when the field changes
 		   @@totalpieces += 1 
+		end
+	end
+	def iscaptured?(penguin)
+		if ((penguin.xloc-@xloc)**2+(penguin.yloc-@yloc)**2) <= 2 #if penguin is within 2 units away from toast, the toast will be picked up
+			penguin.toast_collected += 1
 		end
 	end
 end
