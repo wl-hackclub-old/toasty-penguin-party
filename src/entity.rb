@@ -1,6 +1,6 @@
 class Entity
-	attr_accessor :xloc
-	attr_accessor :yloc
+	attr_accessor :location
+
 	def draw
 	end
 end
