@@ -34,12 +34,12 @@ class GameWindow < Gosu::Window
         @location = @menu
 	end
 
-	# Allows a button to be held down and still activated.
+	# Use this normally; action is done when somebody presses the button, not releases.
 	def button_down(id)
 		@location.button_down(id)
 	end
 
-	# Only allows the button to be pressed once for this to run.
+	# Use this for scary actions; nothing will happen until the key is released.
 	def button_up(id)
 		case id
 		when Gosu::KbEscape
@@ -53,6 +53,8 @@ class GameWindow < Gosu::Window
 		@location.button_up(id)
 	end
 
+	# When allowing held down buttons, use the button_down? method in update.
+	# In subcontexts, this will have to be done with @window.button_down?
 	def update
 		@location.update
 	end
